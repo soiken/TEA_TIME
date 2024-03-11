@@ -1,10 +1,11 @@
 import React from "react"
-import type { GetStaticProps } from "next"
+import { GetStaticProps } from "next"
+import prisma from '../lib/prisma'
 import Layout from "../components/Layout"
 import Post, { PostProps } from "../components/Post"
-import prisma from "../lib/prisma";
 
 export const getStaticProps: GetStaticProps = async () => {
+
   const feed = await prisma.post.findMany({
     where: { published: true },
     include: {
@@ -12,10 +13,10 @@ export const getStaticProps: GetStaticProps = async () => {
         select: { name: true },
       },
     },
-  })
+  });
   return {
     props: { feed },
-    revalidate: 10,
+    revalidate: 10
   }
 }
 
@@ -44,6 +45,7 @@ const Blog: React.FC<Props> = (props) => {
 
         .post:hover {
           box-shadow: 1px 1px 3px #aaa;
+          cursor: pointer;
         }
 
         .post + .post {
