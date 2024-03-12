@@ -63,7 +63,7 @@ const Draft: React.FC = () => {
           />
           <input disabled={!content || !title} type="submit" value="送出" className="submit" />
           <a className="back" href="#" onClick={() => Router.push("/")}>
-            或取消
+          &nbsp;或取消
           </a>
         </form>
       </div>
