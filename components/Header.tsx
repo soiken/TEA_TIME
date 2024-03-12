@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   // Added logo display to the left navigation section
   let left = (
     <div className="left">
-      <img src="/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
+      <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
       <Link href="/">
         <a className="bold" data-active={isActive("/")}>
           全部訂單
