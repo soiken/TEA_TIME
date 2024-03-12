@@ -50,7 +50,7 @@ const Draft: React.FC = () => {
           <input
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="食物"
+            placeholder="食物/飲品"
             type="text"
             value={title}
             className="input"
