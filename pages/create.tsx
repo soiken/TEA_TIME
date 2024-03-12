@@ -7,8 +7,6 @@ import Router from "next/router";
 const Banner = () => {
   return (
     <div className="banner">
-      <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>落單神器</h1>
-      <p style={{ fontSize: "1.2rem" }}>馬上落單</p>
       {/* Add high-quality images of available food items here */}
       <img
         src="../images/bg.jpg"
@@ -48,7 +46,7 @@ const Draft: React.FC = () => {
       <Banner />
       <div className="page">
         <form onSubmit={submitData} className="form">
-          <h1>New Draft</h1>
+          <h1>草稿</h1>
           <input
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
@@ -63,9 +61,9 @@ const Draft: React.FC = () => {
             value={content}
             className="textarea"
           />
-          <input disabled={!content || !title} type="submit" value="Create" className="submit" />
+          <input disabled={!content || !title} type="submit" value="送出" className="submit" />
           <a className="back" href="#" onClick={() => Router.push("/")}>
-            or Cancel
+            後記得確認草稿
           </a>
         </form>
       </div>

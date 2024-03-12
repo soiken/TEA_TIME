@@ -14,7 +14,7 @@ const Header: React.FC = () => {
     <div className="left">
       <Link href="/">
         <a className="bold" data-active={isActive("/")}>
-          Feed
+        全部訂單
         </a>
       </Link>
       <style jsx>{`
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       <div className="left">
         <Link href="/">
           <a className="bold" data-active={isActive("/")}>
-            Feed
+          全部訂單
           </a>
         </Link>
         <style jsx>{`
@@ -86,7 +86,7 @@ const Header: React.FC = () => {
     right = (
       <div className="right">
         <Link href="/api/auth/signin">
-          <a data-active={isActive("/signup")}>Log in</a>
+          <a data-active={isActive("/signup")}>登入</a>
         </Link>
         <style jsx>{`
           a {
@@ -118,11 +118,11 @@ const Header: React.FC = () => {
       <div className="left">
         <Link href="/">
           <a className="bold" data-active={isActive("/")}>
-            Feed
+            全部訂單
           </a>
         </Link>
         <Link href="/drafts">
-          <a data-active={isActive("/drafts")}>My drafts</a>
+          <a data-active={isActive("/drafts")}>我的草稿</a>
         </Link>
         <style jsx>{`
           .bold {
@@ -152,11 +152,11 @@ const Header: React.FC = () => {
         </p>
         <Link href="/create">
           <button>
-            <a>New post</a>
+            <a>落新訂單</a>
           </button>
         </Link>
         <button onClick={() => signOut()}>
-          <a>Log out</a>
+          <a>登出</a>
         </button>
         <style jsx>{`
           a {
