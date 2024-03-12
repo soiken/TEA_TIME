@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   let left = (
     <div className="left">
       <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
-      <Link href="/">
+      <Link href="https://tea-time-iota.vercel.app">
         <a className="bold" data-active={isActive("/")}>
           全部訂單
         </a>
