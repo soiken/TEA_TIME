@@ -95,7 +95,7 @@ const Header: React.FC = () => {
   if (session) {
     left = (
       <div className="left">
-        <img src="/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
+        <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
         <Link href="/">
           <a className="bold" data-active={isActive("/")}>
             全部訂單
