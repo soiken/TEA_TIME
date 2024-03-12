@@ -1,6 +1,27 @@
+//pages/create.tsx
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import Router from "next/router";
+
+// Define the Banner component
+const Banner = () => {
+  return (
+    <div className="banner">
+      <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>落單神器</h1>
+      <p style={{ fontSize: "1.2rem" }}>馬上落單</p>
+      {/* Add high-quality images of available food items here */}
+      <img
+        src="../images/bg.jpg"
+        alt="Food Banner"
+        style={{
+          width: "100%",
+          borderRadius: "10px",
+          marginTop: "2rem",
+        }}
+      />
+    </div>
+  );
+};
 
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -23,8 +44,10 @@ const Draft: React.FC = () => {
 
   return (
     <Layout>
-      <div>
-        <form onSubmit={submitData}>
+      {/* Render the Banner component here */}
+      <Banner />
+      <div className="page">
+        <form onSubmit={submitData} className="form">
           <h1>New Draft</h1>
           <input
             autoFocus
@@ -32,48 +55,20 @@ const Draft: React.FC = () => {
             placeholder="Title"
             type="text"
             value={title}
+            className="input"
           />
           <textarea
-            cols={50}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Content"
-            rows={8}
             value={content}
+            className="textarea"
           />
-          <input disabled={!content || !title} type="submit" value="Create" />
+          <input disabled={!content || !title} type="submit" value="Create" className="submit" />
           <a className="back" href="#" onClick={() => Router.push("/")}>
             or Cancel
           </a>
         </form>
       </div>
-      <style jsx>{`
-        .page {
-          background: white;
-          padding: 3rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        input[type="text"],
-        textarea {
-          width: 100%;
-          padding: 0.5rem;
-          margin: 0.5rem 0;
-          border-radius: 0.25rem;
-          border: 0.125rem solid rgba(0, 0, 0, 0.2);
-        }
-
-        input[type="submit"] {
-          background: #ececec;
-          border: 0;
-          padding: 1rem 2rem;
-        }
-
-        .back {
-          margin-left: 1rem;
-        }
-      `}</style>
     </Layout>
   );
 };

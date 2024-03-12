@@ -1,3 +1,4 @@
+//pages/index.tsx
 import React from "react";
 import type { GetStaticProps } from "next";
 import Layout from "../components/Layout";
@@ -58,61 +59,6 @@ const Blog: React.FC<Props> = (props) => {
           </div>
         </main>
       </div>
-      <style jsx>{`
-        .page {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        .banner {
-          background-color: #f8f8f8;
-          padding: 40px;
-          border-radius: 10px;
-          margin-bottom: 20px;
-          text-align: center;
-        }
-
-        .container {
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-        }
-
-        .posts {
-          display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          width: 100%;
-        }
-
-        .post {
-          background: #f8f8f8;
-          border-radius: 10px;
-          padding: 20px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          transition: transform 0.2s;
-          width: calc(33.33% - 20px);
-          margin-bottom: 20px;
-        }
-
-        .post:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-          .post {
-            width: calc(50% - 20px);
-          }
-        }
-
-        @media (max-width: 480px) {
-          .post {
-            width: calc(100% - 20px);
-          }
-        }
-      `}</style>
     </Layout>
   );
 };
