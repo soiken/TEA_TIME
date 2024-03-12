@@ -50,14 +50,14 @@ const Draft: React.FC = () => {
           <input
             autoFocus
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Title"
+            placeholder="食物"
             type="text"
             value={title}
             className="input"
           />
           <textarea
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Content"
+            placeholder="備注"
             value={content}
             className="textarea"
           />
