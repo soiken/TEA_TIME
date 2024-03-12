@@ -57,6 +57,47 @@ const Drafts: React.FC<Props> = (props) => {
           ))}
         </main>
       </div>
+      <style jsx>{`
+        .page {
+          max-width: 800px;
+          margin: auto;
+          padding: 2rem;
+        }
+
+        h1 {
+          font-size: 28px;
+          color: #333;
+          margin-bottom: 2rem;
+        }
+
+        .post {
+          background: #f9f9f9;
+          padding: 2rem;
+          margin-bottom: 2rem;
+          border-radius: 10px;
+          transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        main {
+          display: flex;
+          flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+          .page {
+            padding: 1rem;
+          }
+          .post {
+            padding: 1rem;
+          }
+        }
+      `}</style>
     </Layout>
   );
 };
