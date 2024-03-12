@@ -60,10 +60,10 @@ const Post: React.FC<PostProps> = (props) => {
         <ReactMarkdown children={props.content} />
         <div className="actions">
           {!props.published && userHasValidSession && postBelongsToUser && (
-            <button className="publishButton" onClick={() => publishPost(props.id)}>Publish</button>
+            <button className="publishButton" onClick={() => publishPost(props.id)}>送出</button>
           )}
           {userHasValidSession && postBelongsToUser && (
-            <button className="deleteButton" onClick={() => deletePost(props.id)}>Delete</button>
+            <button className="deleteButton" onClick={() => deletePost(props.id)}>刪除</button>
           )}
         </div>
       </div>
