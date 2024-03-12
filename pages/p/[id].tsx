@@ -7,6 +7,7 @@ import { PostProps } from "../../components/Post";
 import { useSession } from "next-auth/react";
 import prisma from "../../lib/prisma";
 
+// Server-side data fetching
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const post = await prisma.post.findUnique({
     where: {
@@ -23,6 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 };
 
+// Publishing function
 async function publishPost(id: string): Promise<void> {
   await fetch(`/api/publish/${id}`, {
     method: "PUT",
@@ -30,6 +32,7 @@ async function publishPost(id: string): Promise<void> {
   await Router.push("/");
 }
 
+// Deleting function
 async function deletePost(id: string): Promise<void> {
   await fetch(`/api/post/${id}`, {
     method: "DELETE",
@@ -51,36 +54,71 @@ const Post: React.FC<PostProps> = (props) => {
 
   return (
     <Layout>
-      <div>
+      <div className="post">
         <h2>{title}</h2>
         <p>By {props?.author?.name || "Unknown author"}</p>
         <ReactMarkdown children={props.content} />
-        {!props.published && userHasValidSession && postBelongsToUser && (
-          <button onClick={() => publishPost(props.id)}>Publish</button>
-        )}
-        {userHasValidSession && postBelongsToUser && (
-          <button onClick={() => deletePost(props.id)}>Delete</button>
-        )}
+        <div className="actions">
+          {!props.published && userHasValidSession && postBelongsToUser && (
+            <button className="publishButton" onClick={() => publishPost(props.id)}>Publish</button>
+          )}
+          {userHasValidSession && postBelongsToUser && (
+            <button className="deleteButton" onClick={() => deletePost(props.id)}>Delete</button>
+          )}
+        </div>
       </div>
       <style jsx>{`
-        .page {
-          background: white;
+        .post {
+          background: #ffffff;
           padding: 2rem;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          color: #333;
+          line-height: 1.6;
+        }
+
+        h2 {
+          color: #000;
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #666;
         }
 
         .actions {
           margin-top: 2rem;
+          display: flex;
+          justify-content: start;
         }
 
         button {
-          background: #ececec;
-          border: 0;
-          border-radius: 0.125rem;
-          padding: 1rem 2rem;
+          background: #007aff;
+          color: white;
+          border: none;
+          border-radius: 0.375rem;
+          padding: 0.65rem 1.5rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          font-weight: 600;
         }
 
-        button + button {
-          margin-left: 1rem;
+        button:hover {
+          background-color: #005ecb;
+        }
+
+        .publishButton {
+          margin-right: 1rem;
+        }
+
+        .deleteButton {
+          background-color: #ff3b30;
+        }
+
+        .deleteButton:hover {
+          background-color: #c92a22;
         }
       `}</style>
     </Layout>

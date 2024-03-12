@@ -49,7 +49,7 @@ const Blog: React.FC<Props> = (props) => {
       <div className="page">
         <Banner />
         <main className="container">
-          <h2 style={{ textAlign: "center", margin: "2rem 0" }}>Public Feed</h2>
+          <h2 style={{ textAlign: "center", margin: "2rem 0" }}>全部訂單</h2>
           <div className="posts">
             {props.feed.map((post) => (
               <div key={post.id} className="post">
