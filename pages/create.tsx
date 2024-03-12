@@ -61,7 +61,7 @@ const Draft: React.FC = () => {
             value={content}
             className="textarea"
           />
-          <input disabled={!content || !title} type="submit" value="送出" className="submit" />
+          <input disabled={!content || !title} type="submit" value="儲存草稿" className="submit" />
           <a className="back" href="#" onClick={() => Router.push("/")}>
           &nbsp;或取消
           </a>
