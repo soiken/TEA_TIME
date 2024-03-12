@@ -95,18 +95,20 @@ const Post: React.FC<PostProps> = (props) => {
         }
 
         button {
-          background: #007aff;
-          color: white;
-          border: none;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          color: #333;
           border-radius: 0.375rem;
           padding: 0.65rem 1.5rem;
           cursor: pointer;
-          transition: background-color 0.3s ease;
+          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
           font-weight: 600;
         }
 
         button:hover {
-          background-color: #005ecb;
+          border-color: #333;
+          color: #fff;
+          background-color: #333;
         }
 
         .publishButton {
@@ -114,11 +116,11 @@ const Post: React.FC<PostProps> = (props) => {
         }
 
         .deleteButton {
-          background-color: #ff3b30;
+          border-color: #999;
         }
 
         .deleteButton:hover {
-          background-color: #c92a22;
+          background-color: #999;
         }
       `}</style>
     </Layout>

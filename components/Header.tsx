@@ -8,13 +8,15 @@ const Header: React.FC = () => {
   const isActive: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
 
-  const {data: session, status} = useSession();
+  const { data: session, status } = useSession();
 
+  // Added logo display to the left navigation section
   let left = (
     <div className="left">
+      <img src="/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
       <Link href="/">
         <a className="bold" data-active={isActive("/")}>
-        全部訂單
+          全部訂單
         </a>
       </Link>
       <style jsx>{`
@@ -35,6 +37,11 @@ const Header: React.FC = () => {
         a + a {
           margin-left: 1rem;
         }
+
+        .logo { /* Styling for the logo */
+          height: 50px; /* Example size, adjust as needed */
+          margin-right: 20px; /* Adjust spacing between the logo and the link */
+        }
       `}</style>
     </div>
   );
@@ -42,34 +49,6 @@ const Header: React.FC = () => {
   let right = null;
 
   if (status === "loading") {
-    left = (
-      <div className="left">
-        <Link href="/">
-          <a className="bold" data-active={isActive("/")}>
-          全部訂單
-          </a>
-        </Link>
-        <style jsx>{`
-          .bold {
-            font-weight: bold;
-          }
-
-          a {
-            text-decoration: none;
-            color: #000;
-            display: inline-block;
-          }
-
-          .left a[data-active="true"] {
-            color: gray;
-          }
-
-          a + a {
-            margin-left: 1rem;
-          }
-        `}</style>
-      </div>
-    );
     right = (
       <div className="right">
         <p>Validating session ...</p>
@@ -116,6 +95,7 @@ const Header: React.FC = () => {
   if (session) {
     left = (
       <div className="left">
+        <img src="/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
         <Link href="/">
           <a className="bold" data-active={isActive("/")}>
             全部訂單
@@ -141,6 +121,11 @@ const Header: React.FC = () => {
 
           a + a {
             margin-left: 1rem;
+          }
+
+          .logo {
+            height: 50px;
+            margin-right: 20px;
           }
         `}</style>
       </div>
