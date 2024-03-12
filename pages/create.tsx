@@ -89,7 +89,7 @@ const Draft: React.FC = () => {
 
         .form {
           width: 100%;
-          max-width: 500px;
+          /* max-width: 500px; */
           background: white;
           padding: 2rem;
           border-radius: 10px;
