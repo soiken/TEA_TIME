@@ -13,9 +13,9 @@ const Header: React.FC = () => {
   // Added logo display to the left navigation section
   let left = (
     <div className="left">
-      <Link href="/">
+      <a href="/">
         <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
-      </Link>
+      </a>
       <Link href="/">
         <a className="bold" data-active={isActive("/")}>
           全部訂單
@@ -97,9 +97,9 @@ const Header: React.FC = () => {
   if (session) {
     left = (
       <div className="left">
-        <Link href="/">
+        <a href="/">
           <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
-        </Link>
+        </a>
         <Link href="/">
           <a className="bold" data-active={isActive("/")}>
             全部訂單
