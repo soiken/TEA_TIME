@@ -96,7 +96,7 @@ const Header: React.FC = () => {
     left = (
       <div className="left">
         <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
-        <Link href="/">
+        <Link href="https://tea-time-iota.vercel.app">
           <a className="bold" data-active={isActive("/")}>
             全部訂單
           </a>
