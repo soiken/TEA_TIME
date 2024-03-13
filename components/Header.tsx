@@ -10,16 +10,41 @@ const Header: React.FC = () => {
 
   const { data: session, status } = useSession();
 
+  // Added logo display to the left navigation section
   let left = (
     <div className="left">
       <a href="/">
-        <img src="../images/logo.jpg" alt="Logo" className="logo" />
+        <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
       </a>
       <Link href="/">
         <a className="bold" data-active={isActive("/")}>
           全部訂單
         </a>
       </Link>
+      <style jsx>{`
+        .bold {
+          font-weight: bold;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000;
+          display: inline-block;
+        }
+
+        .left a[data-active="true"] {
+          color: gray;
+        }
+
+        a + a {
+          margin-left: 1rem;
+        }
+
+        .logo { /* Styling for the logo */
+          height: 50px; /* Example size, adjust as needed */
+          margin-right: 20px; /* Adjust spacing between the logo and the link */
+        }
+      `}</style>
     </div>
   );
 
@@ -29,21 +54,51 @@ const Header: React.FC = () => {
     right = (
       <div className="right">
         <p>Validating session ...</p>
+        <style jsx>{`
+          .right {
+            margin-left: auto;
+          }
+        `}</style>
       </div>
     );
-  } else if (!session) {
+  }
+
+  if (!session) {
     right = (
       <div className="right">
         <Link href="/api/auth/signin">
           <a data-active={isActive("/signup")}>登入</a>
         </Link>
+        <style jsx>{`
+          a {
+            text-decoration: none;
+            color: #000;
+            display: inline-block;
+          }
+
+          a + a {
+            margin-left: 1rem;
+          }
+
+          .right {
+            margin-left: auto;
+          }
+
+          .right a {
+            border: 1px solid black;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+          }
+        `}</style>
       </div>
     );
-  } else {
+  }
+
+  if (session) {
     left = (
       <div className="left">
         <a href="/">
-          <img src="../images/logo.jpg" alt="Logo" className="logo" />
+          <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
         </a>
         <Link href="/">
           <a className="bold" data-active={isActive("/")}>
@@ -53,6 +108,30 @@ const Header: React.FC = () => {
         <Link href="/drafts">
           <a data-active={isActive("/drafts")}>我的草稿</a>
         </Link>
+        <style jsx>{`
+          .bold {
+            font-weight: bold;
+          }
+
+          a {
+            text-decoration: none;
+            color: #000;
+            display: inline-block;
+          }
+
+          .left a[data-active="true"] {
+            color: gray;
+          }
+
+          a + a {
+            margin-left: 1rem;
+          }
+
+          .logo {
+            height: 50px;
+            margin-right: 20px;
+          }
+        `}</style>
       </div>
     );
     right = (
@@ -68,6 +147,37 @@ const Header: React.FC = () => {
         <button onClick={() => signOut()}>
           <a>登出</a>
         </button>
+        <style jsx>{`
+          a {
+            text-decoration: none;
+            color: #000;
+            display: inline-block;
+          }
+
+          p {
+            display: inline-block;
+            font-size: 13px;
+            padding-right: 1rem;
+          }
+
+          a + a {
+            margin-left: 1rem;
+          }
+
+          .right {
+            margin-left: auto;
+          }
+
+          .right a {
+            border: 1px solid black;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+          }
+
+          button {
+            border: none;
+          }
+        `}</style>
       </div>
     );
   }
@@ -79,53 +189,8 @@ const Header: React.FC = () => {
       <style jsx>{`
         nav {
           display: flex;
-          flex-wrap: wrap;
-          padding: 1rem;
+          padding: 2rem;
           align-items: center;
-          justify-content: space-between;
-        }
-
-        .left, .right {
-          display: flex;
-          align-items: center;
-        }
-
-        a, p {
-          text-decoration: none;
-          color: #000;
-          display: inline-block;
-          margin: 0 0.5rem;
-        }
-
-        .bold {
-          font-weight: bold;
-        }
-
-        .logo {
-          height: 40px;
-          margin-right: 20px;
-        }
-
-        @media (max-width: 600px) {
-          nav {
-            padding: 0.5rem;
-          }
-
-          .logo {
-            height: 30px;
-          }
-
-          a, p {
-            font-size: 14px;
-          }
-
-          .right p, .right a {
-            display: none; // Hide text to simplify interface on small screens
-          }
-
-          .right button {
-            padding: 0.25rem 0.5rem; // Smaller buttons on mobile
-          }
         }
       `}</style>
     </nav>
