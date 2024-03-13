@@ -13,8 +13,10 @@ const Header: React.FC = () => {
   // Added logo display to the left navigation section
   let left = (
     <div className="left">
-      <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
-      <Link href="https://tea-time-iota.vercel.app">
+      <Link href="/">
+        <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Logo image added */}
+      </Link>
+      <Link href="/">
         <a className="bold" data-active={isActive("/")}>
           全部訂單
         </a>
@@ -95,8 +97,10 @@ const Header: React.FC = () => {
   if (session) {
     left = (
       <div className="left">
-        <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
-        <Link href="https://tea-time-iota.vercel.app">
+        <Link href="/">
+          <img src="../images/logo.jpg" alt="Logo" className="logo" /> {/* Ensure logo appears in all states */}
+        </Link>
+        <Link href="/">
           <a className="bold" data-active={isActive("/")}>
             全部訂單
           </a>
