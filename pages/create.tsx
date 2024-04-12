@@ -7,19 +7,23 @@ import Router from "next/router";
 const Banner = () => {
   return (
     <div className="banner">
-      {/* Add high-quality images of available food items here */}
-      <img
-        src="../images/bg.jpg"
-        alt="Food Banner"
-        style={{
-          width: "100%",
-          borderRadius: "10px",
-          marginTop: "2rem",
-        }}
-      />
+      {/* Wrap the image within an anchor tag */}
+      <a href="../images/bg.jpg" target="_blank" rel="noopener noreferrer">
+        <img
+          src="../images/bg.jpg"
+          alt="Food Banner"
+          style={{
+            width: "100%",
+            borderRadius: "10px",
+            marginTop: "2rem",
+            cursor: "pointer", // Add cursor pointer to indicate clickability
+          }}
+        />
+      </a>
     </div>
   );
 };
+
 
 const Draft: React.FC = () => {
   const [title, setTitle] = useState("");
