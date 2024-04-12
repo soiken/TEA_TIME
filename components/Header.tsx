@@ -140,13 +140,13 @@ const Header: React.FC = () => {
           {session.user.name} ({session.user.email})
         </p>
         <Link href="/create">
-          <button>
-            <a>落新訂單</a>
-          </button>
+          <a>
+          <button>落新訂單</button>
+          </a>
         </Link>
-        <button onClick={() => signOut()}>
-          <a>登出</a>
-        </button>
+          <a>
+          <button onClick={() => signOut()}>登出</button>
+          </a>
         <style jsx>{`
           a {
             text-decoration: none;
@@ -169,13 +169,26 @@ const Header: React.FC = () => {
           }
 
           .right a {
-            border: 1px solid black;
+            border: none;
             padding: 0.5rem 1rem;
             border-radius: 3px;
           }
 
           button {
-            border: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            border-radius: 0.375rem;
+            padding: 0.65rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            font-weight: 600;
+          }
+  
+          button:hover {
+            border-color: #333;
+            color: #fff;
+            background-color: #333;
           }
         `}</style>
       </div>
