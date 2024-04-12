@@ -30,7 +30,7 @@ const Banner = () => {
       <h1 style={{ fontSize: "2rem", marginBottom: "1rem" }}>落單神器</h1>
       <p style={{ fontSize: "1.2rem" }}>馬上落單</p>
       {/* Add high-quality images of available food items here */}
-      <a href="../images/bg.jpg" target="_blank" rel="noopener noreferrer"></a>
+      <a href="../images/bg.jpg" target="_blank" rel="noopener noreferrer">
       <img
         src="../images/bg.jpg"
         alt="Food Banner"
