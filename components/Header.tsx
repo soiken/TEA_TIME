@@ -175,8 +175,22 @@ const Header: React.FC = () => {
           }
 
           button {
-            border: none;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #333;
+            border-radius: 0.375rem;
+            padding: 0.65rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            font-weight: 600;
           }
+  
+          button:hover {
+            border-color: #333;
+            color: #fff;
+            background-color: #333;
+          }
+          
         `}</style>
       </div>
     );
